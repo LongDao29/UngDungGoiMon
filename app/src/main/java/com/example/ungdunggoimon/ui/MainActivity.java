@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 showFm(fmSetting);
                 break;
         }
+        //
         return true;
     }
 

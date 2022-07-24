@@ -59,6 +59,7 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
         OrderFragment orderFragment = new OrderFragment();
         orderFragment.setArguments(bundle);
         ((MainActivity) getActivity()).showFm(orderFragment);
+
     }
 
     @Override
