@@ -1,13 +1,20 @@
 package com.example.ungdunggoimon.ui.adapter;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ungdunggoimon.databinding.ItemTableBinding;
+import com.example.ungdunggoimon.model.Order;
 import com.example.ungdunggoimon.model.Table;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -15,6 +22,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
 
     private ArrayList<Table> data;
     private ItemTableClick listener;
+
     public TableAdapter(ItemTableClick listener) {
         this.listener = listener;
     }
@@ -23,42 +31,75 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
         this.data = data;
         notifyDataSetChanged();
     }
+
     public ArrayList<Table> getData() {
         return data;
     }
 
-
     @NonNull
     @Override
-    public TableAdapter.TableViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TableViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemTableBinding binding = ItemTableBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new TableViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TableViewHolder holder, int position) {
-        holder.bindData(data.get(position));
+    public void onBindViewHolder(@NonNull TableViewHolder holder, int index) {
+        int position = index;
+        holder.bindData(data.get(position), position);
         holder.binding.getRoot().setOnClickListener(v -> {
             listener.onItemTableClicked(data.get(position));
         });
+
     }
 
     @Override
     public int getItemCount() {
         return data == null ? 0 : data.size();
     }
+
     class TableViewHolder extends RecyclerView.ViewHolder {
         private ItemTableBinding binding;
+        private DatabaseReference reference;
 
         public TableViewHolder(ItemTableBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
 
-        void bindData(Table item) {
-            binding.tvName.setText(item.getName());
+        void bindData(Table item, int position) {
+            binding.tvName.setText(item.getRoom() + ": "+ item.getName());
+            binding.tvStatus.setVisibility(View.VISIBLE);
+            for (Order o: item.getOrders()) {
+                if (o.getStatus() == 0) {
+                    binding.tvStatus.setVisibility(View.INVISIBLE);
+                    return;
+                }
+            }
+            if (reference == null) {
+                reference = FirebaseDatabase.getInstance().getReference("order")
+                        .child(data.get(position).getId());
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList<Order> orders = new ArrayList<>();
+                        for (DataSnapshot sn : snapshot.getChildren()) {
+                            Order order = sn.getValue(Order.class);
+                            orders.add(order);
+                        }
+                        data.get(position).setOrders(orders);
+                        notifyItemChanged(position);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
         }
     }
+
     public interface ItemTableClick {
         void onItemTableClicked(Table item);
     }
