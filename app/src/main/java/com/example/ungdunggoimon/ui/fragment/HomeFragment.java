@@ -9,8 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.ungdunggoimon.App;
 import com.example.ungdunggoimon.databinding.FragmentHomeBinding;
 import com.example.ungdunggoimon.model.Table;
+import com.example.ungdunggoimon.ui.MainActivity;
 import com.example.ungdunggoimon.ui.adapter.TableAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,10 +23,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment implements ValueEventListener ,TableAdapter.ItemTableClick {
-
     private FragmentHomeBinding binding;
     private TableAdapter adapter;
 
+    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
@@ -34,28 +36,38 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        loadData();
+        binding.refresh.setOnRefreshListener(() -> {
+            loadData();
+            binding.refresh.setRefreshing(false);
+        });
+    }
+
+    private void loadData() {
         adapter = new TableAdapter(this);
         binding.rcTable.setAdapter(adapter);
+        ((App) getContext().getApplicationContext()).tables.observe(getViewLifecycleOwner(), tables -> {
+            adapter.setData(tables);
+        });
+    }
 
-    }
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
-        ArrayList<Table> data = new ArrayList<>();
-        for (DataSnapshot sn: snapshot.getChildren()) {
-            Table table = sn.getValue(Table.class);
-            table.setId(sn.getKey());
-            data.add(table);
-        }
-        adapter.setData(data);
-    }
-//hello
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
-    }
 
     @Override
     public void onItemTableClicked(Table item) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Table.class.getName(), item);
+        OrderFragment orderFragment = new OrderFragment();
+        orderFragment.setArguments(bundle);
+        ((MainActivity) getActivity()).showFm(orderFragment);
+    }
+
+    @Override
+    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError error) {
 
     }
 }
