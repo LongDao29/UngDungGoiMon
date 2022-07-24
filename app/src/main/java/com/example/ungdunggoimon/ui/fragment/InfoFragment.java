@@ -1,4 +1,4 @@
-package com.da.qlnhahang.ui.fragment;
+package com.example.ungdunggoimon.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.da.qlnhahang.App;
-import com.da.qlnhahang.databinding.FragmentInfoBinding;
-import com.da.qlnhahang.model.User;
+import com.example.ungdunggoimon.App;
+import com.example.ungdunggoimon.databinding.FragmentInfoBinding;
+import com.example.ungdunggoimon.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;

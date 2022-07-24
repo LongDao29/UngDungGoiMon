@@ -1,4 +1,4 @@
-package com.da.qlnhahang.model;
+package com.example.ungdunggoimon.model;
 
 import com.google.firebase.database.Exclude;
 
@@ -11,7 +11,7 @@ public class User {
     private String role;
     private String username;
     private String password;
-
+    private String token;
     @Exclude
     public String getId() {
         return id;
@@ -67,5 +67,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

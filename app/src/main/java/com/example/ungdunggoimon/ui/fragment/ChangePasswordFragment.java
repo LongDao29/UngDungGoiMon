@@ -1,4 +1,4 @@
-package com.da.qlnhahang.ui.fragment;
+package com.example.ungdunggoimon.ui.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.da.qlnhahang.App;
-import com.da.qlnhahang.databinding.FragmentChangePasswordBinding;
-import com.da.qlnhahang.databinding.FragmentInfoBinding;
-import com.da.qlnhahang.model.User;
-import com.da.qlnhahang.utils.Constance;
+import com.example.ungdunggoimon.App;
+import com.example.ungdunggoimon.databinding.FragmentChangePasswordBinding;
+import com.example.ungdunggoimon.databinding.FragmentInfoBinding;
+import com.example.ungdunggoimon.model.User;
+import com.example.ungdunggoimon.utils.Constance;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ChangePasswordFragment extends Fragment {

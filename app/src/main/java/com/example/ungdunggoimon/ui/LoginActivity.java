@@ -1,4 +1,4 @@
-package com.da.qlnhahang.ui;
+package com.example.ungdunggoimon.ui;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -7,9 +7,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.da.qlnhahang.App;
-import com.da.qlnhahang.R;
-import com.da.qlnhahang.databinding.ActivityLoginBinding;
+import com.example.ungdunggoimon.App;
+import com.example.ungdunggoimon.R;
+import com.example.ungdunggoimon.databinding.ActivityLoginBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

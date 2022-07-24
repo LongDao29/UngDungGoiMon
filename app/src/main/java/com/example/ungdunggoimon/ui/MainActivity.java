@@ -1,4 +1,4 @@
-package com.da.qlnhahang.ui;
+package com.example.ungdunggoimon.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,12 +9,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.da.qlnhahang.R;
-import com.da.qlnhahang.databinding.ActivityMainBinding;
-import com.da.qlnhahang.ui.fragment.ChangePasswordFragment;
-import com.da.qlnhahang.ui.fragment.HomeFragment;
-import com.da.qlnhahang.ui.fragment.InfoFragment;
-import com.da.qlnhahang.ui.fragment.SettingFragment;
+import com.example.ungdunggoimon.R;
+import com.example.ungdunggoimon.databinding.ActivityMainBinding;
+import com.example.ungdunggoimon.ui.fragment.ChangePasswordFragment;
+import com.example.ungdunggoimon.ui.fragment.HomeFragment;
+import com.example.ungdunggoimon.ui.fragment.InfoFragment;
+import com.example.ungdunggoimon.ui.fragment.SettingFragment;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
