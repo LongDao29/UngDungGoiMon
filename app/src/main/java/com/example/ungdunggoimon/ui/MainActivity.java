@@ -1,5 +1,4 @@
 package com.example.ungdunggoimon.ui;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -37,10 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         switch (item.getItemId()) {
             case R.id.nav_home:
                 showFm(fmHome);
-                break;
-            case R.id.nav_order:
-                break;
-            case R.id.nav_recipes:
                 break;
             case R.id.nav_setting:
                 showFm(fmSetting);

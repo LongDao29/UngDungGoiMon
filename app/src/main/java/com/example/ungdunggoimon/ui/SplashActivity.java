@@ -8,7 +8,6 @@ import android.os.Looper;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ungdunggoimon.MainActivity;
 import com.example.ungdunggoimon.R;
 
 public  class SplashActivity extends AppCompatActivity {
