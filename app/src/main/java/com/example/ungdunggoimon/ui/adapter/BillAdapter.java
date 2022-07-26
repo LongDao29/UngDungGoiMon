@@ -45,7 +45,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
         int position = index;
         holder.bindData(data.get(position), position);
     }
-
+//getcount
     @Override
     public int getItemCount() {
         return data == null ? 0 : data.size();
