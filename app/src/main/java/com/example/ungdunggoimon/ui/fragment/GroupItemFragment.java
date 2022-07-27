@@ -35,7 +35,7 @@ public class GroupItemFragment extends Fragment implements ItemAdapter.ItemItemC
         ArrayList<Item> items = (ArrayList<Item>) getArguments().getSerializable(Item.class.getName());
         adapter.setData(items);
     }
-    //heeeeee
+
 
     @Override
     public void onItemItemClicked(Item item) {

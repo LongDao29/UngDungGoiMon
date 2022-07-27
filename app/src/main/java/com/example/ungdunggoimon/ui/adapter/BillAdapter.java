@@ -39,7 +39,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
         ItemBillBinding binding = ItemBillBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new BillViewHolder(binding);
     }
-
+//////////////////
     @Override
     public void onBindViewHolder(@NonNull BillViewHolder holder, int index) {
         int position = index;
