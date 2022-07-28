@@ -113,5 +113,6 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
         }
     }
 }
-//flagment/billadapter
+//bill
+
 

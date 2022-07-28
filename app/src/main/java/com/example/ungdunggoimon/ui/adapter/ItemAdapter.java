@@ -27,7 +27,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         this.data = data;
         notifyDataSetChanged();
     }
-////////
+
     public ArrayList<Item> getData() {
         return data;
     }

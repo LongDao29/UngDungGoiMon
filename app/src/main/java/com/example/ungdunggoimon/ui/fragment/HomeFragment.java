@@ -32,7 +32,6 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -42,7 +41,6 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
             binding.refresh.setRefreshing(false);
         });
     }
-
     private void loadData() {
         adapter = new TableAdapter(this);
         binding.rcTable.setAdapter(adapter);
