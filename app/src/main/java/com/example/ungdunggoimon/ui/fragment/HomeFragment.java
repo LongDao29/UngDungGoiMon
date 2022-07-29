@@ -48,8 +48,6 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
             adapter.setData(tables);
         });
     }
-
-
     @Override
     public void onItemTableClicked(Table item) {
         Bundle bundle = new Bundle();
