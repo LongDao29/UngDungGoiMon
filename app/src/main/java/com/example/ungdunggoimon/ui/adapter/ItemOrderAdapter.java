@@ -32,11 +32,11 @@ public class ItemOrderAdapter extends RecyclerView.Adapter<ItemOrderAdapter.Item
         isOwner = owner;
         notifyDataSetChanged();
     }
-
+//
     public ArrayList<Item> getData() {
         return data;
     }
-
+//
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

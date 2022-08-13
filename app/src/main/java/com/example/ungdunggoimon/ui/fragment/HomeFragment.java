@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements ValueEventListener ,TableAdapter.ItemTableClick {
+public class HomeFragment extends Fragment implements TableAdapter.ItemTableClick {
     private FragmentHomeBinding binding;
     private TableAdapter adapter;
 
@@ -32,7 +32,6 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -42,7 +41,6 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
             binding.refresh.setRefreshing(false);
         });
     }
-
     private void loadData() {
         adapter = new TableAdapter(this);
         binding.rcTable.setAdapter(adapter);
@@ -50,8 +48,6 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
             adapter.setData(tables);
         });
     }
-
-
     @Override
     public void onItemTableClicked(Table item) {
         Bundle bundle = new Bundle();
@@ -62,13 +58,5 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
 
     }
 
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
-    }
 }

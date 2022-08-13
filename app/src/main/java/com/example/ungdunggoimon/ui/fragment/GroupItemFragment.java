@@ -36,6 +36,7 @@ public class GroupItemFragment extends Fragment implements ItemAdapter.ItemItemC
         adapter.setData(items);
     }
 
+
     @Override
     public void onItemItemClicked(Item item) {
         if (item.getAvailable().equals("Có sẵn")) {
