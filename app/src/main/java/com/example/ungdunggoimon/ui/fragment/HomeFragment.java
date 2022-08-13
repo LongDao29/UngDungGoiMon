@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements ValueEventListener ,TableAdapter.ItemTableClick {
+public class HomeFragment extends Fragment implements TableAdapter.ItemTableClick {
     private FragmentHomeBinding binding;
     private TableAdapter adapter;
 
@@ -58,13 +58,5 @@ public class HomeFragment extends Fragment implements ValueEventListener ,TableA
 
     }
 
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
-    }
 }

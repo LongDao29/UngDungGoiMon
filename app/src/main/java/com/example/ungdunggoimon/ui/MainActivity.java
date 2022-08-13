@@ -1,4 +1,5 @@
 package com.example.ungdunggoimon.ui;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -10,9 +11,11 @@ import android.view.MenuItem;
 
 import com.example.ungdunggoimon.R;
 import com.example.ungdunggoimon.databinding.ActivityMainBinding;
+import com.example.ungdunggoimon.ui.fragment.BillFragment;
 import com.example.ungdunggoimon.ui.fragment.ChangePasswordFragment;
 import com.example.ungdunggoimon.ui.fragment.HomeFragment;
 import com.example.ungdunggoimon.ui.fragment.InfoFragment;
+import com.example.ungdunggoimon.ui.fragment.NotifyFragment;
 import com.example.ungdunggoimon.ui.fragment.SettingFragment;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     private ActivityMainBinding binding;
     private HomeFragment fmHome = new HomeFragment();
     private SettingFragment fmSetting = new SettingFragment();
+    private NotifyFragment fmNotify = new NotifyFragment();
+    private BillFragment fmBill = new BillFragment();
     public InfoFragment fmInfo = new InfoFragment();
 
     @Override
@@ -37,11 +42,16 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
             case R.id.nav_home:
                 showFm(fmHome);
                 break;
+            case R.id.nav_order:
+                showFm(fmNotify);
+                break;
+            case R.id.nav_recipes:
+                showFm(fmBill);
+                break;
             case R.id.nav_setting:
                 showFm(fmSetting);
                 break;
         }
-        //
         return true;
     }
 
