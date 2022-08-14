@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.da.qlnhahang.databinding.ItemItemOrderBinding;
 import com.da.qlnhahang.model.Item;
+import com.da.qlnhahang.utils.OrderStatus;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -70,7 +71,7 @@ public class ItemOrderAdapter extends RecyclerView.Adapter<ItemOrderAdapter.Item
             binding.tvName.setText(item.getName());
             binding.tvPrice.setText(format.format(Integer.parseInt(item.getPrice())));
             binding.tvCount.setText(item.getCount() + "");
-//            binding.tvStatus.setText(OrderStatus.getStatus(item.getStatus()));
+            binding.tvStatus.setText(OrderStatus.getStatus(item.getStatus()));
             binding.edtNote.setText(item.getNote());
             binding.imAdd.setVisibility(item.getStatus() == 0 ? View.VISIBLE : View.INVISIBLE);
             binding.imRemove.setVisibility(item.getStatus() == 0 ? View.VISIBLE : View.INVISIBLE);
