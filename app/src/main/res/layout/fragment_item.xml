@@ -55,7 +55,7 @@
         </androidx.viewpager2.widget.ViewPager2>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_save"
-            android:text="Save"
+            android:text="Lưu"
             android:layout_margin="16dp"
             android:textColor="@color/white"
             android:background="@drawable/bg_button"
